@@ -1,0 +1,23 @@
+{% extends 'base/base_page.html' %}    
+{% block content %}
+<div>
+    {% load static %}
+    <ul>
+        <li class="policy">POLICY</li>
+        <li class="approvepaper">APPROVE</li>
+        <li class="status">STATUS</li>
+        {% if isSuper %}
+            <li class="supermode">SUPERVISOR</li>
+        {% endif %}
+    </ul>
+    <div id="content">
+        <div class="con_policy"></div>
+        <div class="con_approvepaper"></div>
+        <div class="con_status"></div>
+        {% if isSuper %}
+            <div class="con_supermode"></div>
+        {% endif %}
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</div>
+{% endblock %}

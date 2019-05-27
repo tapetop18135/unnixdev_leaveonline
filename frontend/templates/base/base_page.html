@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+  </head>
+
+  <body>
+      <div class="balckground_opa googleS" style="">
+      </div>
+      <div style="padding: 10px">
+        <hr>
+        <h1><a href="{% url 'frontend:index' %}">Unix Dev</a></h1>
+        {% if auth_.status_login %}
+          <a href="{% url 'account:signout' %}">Logout</a>
+        {% else %}
+          
+          <a href="{% url 'account:signin' %}">Login</a>
+          <a href="{% url 'account:signuppage' %}">Register</a>
+        {% endif %}
+
+        <hr>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        
+        <hr>
+        Footer
+        {% if auth_.status_login %}
+          <p>
+            User : <span id="username_">{{auth_.user}}</span> <br>
+            Department : <span id="department_">{{depName}}</span> <br> 
+            Position : <span id="position_">{{posName}}</span> <br>
+          <p>
+        {% endif %}
+        <hr>
+    </div>
+  </body>
+
+</html>
